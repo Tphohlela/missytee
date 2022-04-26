@@ -10,6 +10,9 @@ const showPriceRangeElem = document.querySelector('.showPriceRange');
 const garmentsTemplateText = document.querySelector('.garmentListTemplate');
 const garmentsTemplate = Handlebars.compile(garmentsTemplateText.innerHTML);
 
+localStorage.setItem("jwt", 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiVHBob2hsZWxhIn0sImlhdCI6MTY1MDk2MjMxNH0._-6xogQIBr2SCKN7JOn8uRC8K7oqkUL10PzzO-xLnBQ');
+localStorage.getItem("jwt");
+
 seasonOptions.addEventListener('click', function(evt) {
     seasonFilter = evt.target.value;
     filterData();
@@ -19,9 +22,6 @@ genderOptions.addEventListener('click', function(evt) {
     genderFilter = evt.target.value;
     filterData();
 });
-
-
-
 
 function filterData() {
     axios

@@ -11,8 +11,6 @@ function myFunction() {
     setTimeout(function() { x.className = x.className.replace("show", ""); }, 3000);
 }
 
-
-
 function showMessage(value) {
     message.innerHTML = value;
     message.classList.toggle('hidden');

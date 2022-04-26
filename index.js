@@ -1,7 +1,7 @@
 // add code in here to create an API with ExpressJS
-
 const express = require('express');
 const app = express();
+const jwt = require('jsonwebtoken');
 
 
 app.use(express.json());
@@ -13,7 +13,10 @@ app.use(express.static('public'));
 const garments = require('./garments.json');
 // import the dataset to be used here
 
+
 app.get('/api/garments', function(req, res) {
+
+
 
     const gender = req.query.gender;
     const season = req.query.season;
@@ -93,9 +96,28 @@ app.post('/api/garments', (req, res) => {
 
 });
 
+app.post('/api/login', function (req, res) {
+    const user = {"username" : "Tphohlela" }
+     jwt.sign({user: user},"CodingIsFun",{expiresIn: '1d'},(err,token) => {
+        res.json({
+            token : token
+        })
+     })
 
 
-const PORT = process.env.PORT || 4017;
+    });
+    
+    app.get('/api/posts', function (req, res) {
+        res.json({
+            message : "JwtToken",
+        })
+    });
+
+
+    
+
+
+const PORT = process.env.PORT || 4018;
 
 // API routes to be added here
 
